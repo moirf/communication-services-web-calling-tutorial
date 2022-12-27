@@ -3,7 +3,7 @@ const CommunicationIdentityClient = require("@azure/communication-administration
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const config = require("./config.json");
 
-if(!config || !config.connectionString || config.connectionString.indexOf('endpoint=') === -1)
+if(!config || !config.connectionString)
 {
     throw new Error("Update `config.json` with connection string");
 }
