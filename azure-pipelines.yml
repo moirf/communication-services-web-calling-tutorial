@@ -3,6 +3,7 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+name: 'NPM Build Pipleine'
 trigger:
 - main
 
@@ -17,12 +18,14 @@ steps:
 - task: Npm@1
   inputs:
     command: 'install'
-    workingDir: 'project'
+    workingDir: 'Project'
+  displayName: 'npm install'
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: 'project'
+    workingDir: 'Project'
     customCommand: 'run build'
+  displayName: 'npm run build'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
